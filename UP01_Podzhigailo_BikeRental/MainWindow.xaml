@@ -10,15 +10,18 @@
         Loaded="Window_Loaded"
         Closing="Window_Closing">
 
-    <Grid>
+    <Grid Background="{DynamicResource BackgroundColor}">
+
         <Grid.RowDefinitions>
             <RowDefinition Height="45"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="45"/>
         </Grid.RowDefinitions>
 
-        <!-- Верхняя строка -->
-        <Grid Grid.Row="0" Background="#263238">
+        <!-- Верхняя панель -->
+        <Grid Grid.Row="0"
+              Background="{DynamicResource PrimaryColor}">
+
             <Button x:Name="BackButton"
                     Content="← Назад"
                     Width="100"
@@ -34,6 +37,21 @@
                        FontWeight="Bold"
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center"/>
+
+            <ComboBox x:Name="ThemeSelector"
+                      Width="145"
+                      Height="30"
+                      Margin="0,0,15,0"
+                      HorizontalAlignment="Right"
+                      VerticalAlignment="Center"
+                      SelectedIndex="0"
+                      SelectionChanged="ThemeSelector_SelectionChanged">
+
+                <ComboBoxItem Content="Светлая тема"/>
+                <ComboBoxItem Content="Тёмная тема"/>
+
+            </ComboBox>
+
         </Grid>
 
         <!-- Центральная область для страниц -->
@@ -41,21 +59,24 @@
                Grid.Row="1"
                NavigationUIVisibility="Hidden"
                HorizontalAlignment="Stretch"
-               VerticalAlignment="Stretch"/>
+               VerticalAlignment="Stretch"
+               Background="{DynamicResource BackgroundColor}"/>
 
-        <!-- Нижняя строка -->
-        <Grid Grid.Row="2" Background="#ECEFF1">
+        <!-- Нижняя панель -->
+        <Grid Grid.Row="2"
+              Background="{DynamicResource BackgroundColor}">
+
             <TextBlock Text="Сервис аренды велосипедов и самокатов"
                        VerticalAlignment="Center"
                        HorizontalAlignment="Left"
-                       Margin="10,0,0,0"
-                       Foreground="#263238"/>
+                       Margin="10,0,0,0"/>
 
             <TextBlock x:Name="DateTimeNow"
                        VerticalAlignment="Center"
                        HorizontalAlignment="Right"
-                       Margin="0,0,10,0"
-                       Foreground="#263238"/>
+                       Margin="0,0,10,0"/>
+
         </Grid>
+
     </Grid>
 </Window>
