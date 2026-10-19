@@ -1,0 +1,76 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- Основные цвета приложения -->
+    <SolidColorBrush x:Key="PrimaryColor" Color="#263238"/>
+    <SolidColorBrush x:Key="AccentColor" Color="#00897B"/>
+    <SolidColorBrush x:Key="BackgroundColor" Color="#F4F7F8"/>
+    <SolidColorBrush x:Key="TextColor" Color="#263238"/>
+
+    <!-- Единый стиль текста -->
+    <Style TargetType="{x:Type TextBlock}">
+        <Setter Property="FontFamily" Value="Open Sans"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="Foreground" Value="{StaticResource TextColor}"/>
+    </Style>
+
+    <!-- Единый стиль кнопок -->
+    <Style TargetType="{x:Type Button}">
+        <Setter Property="Height" Value="36"/>
+        <Setter Property="MinWidth" Value="100"/>
+        <Setter Property="Padding" Value="10,5"/>
+        <Setter Property="Margin" Value="5"/>
+        <Setter Property="FontFamily" Value="Open Sans"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="Background" Value="{StaticResource PrimaryColor}"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Cursor" Value="Hand"/>
+    </Style>
+
+    <!-- Стиль подписей -->
+    <Style TargetType="{x:Type Label}">
+        <Setter Property="FontFamily" Value="Open Sans"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="Foreground" Value="{StaticResource TextColor}"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+    </Style>
+
+    <!-- Поля ввода -->
+    <Style TargetType="{x:Type TextBox}">
+        <Setter Property="FontFamily" Value="Open Sans"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="Padding" Value="8,5"/>
+        <Setter Property="Margin" Value="5"/>
+        <Setter Property="MinHeight" Value="32"/>
+    </Style>
+
+    <!-- Поля пароля -->
+    <Style TargetType="{x:Type PasswordBox}">
+        <Setter Property="FontFamily" Value="Open Sans"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="Padding" Value="8,5"/>
+        <Setter Property="Margin" Value="5"/>
+        <Setter Property="MinHeight" Value="32"/>
+    </Style>
+
+    <!-- Выпадающие списки -->
+    <Style TargetType="{x:Type ComboBox}">
+        <Setter Property="FontFamily" Value="Open Sans"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="Margin" Value="5"/>
+        <Setter Property="MinHeight" Value="32"/>
+    </Style>
+
+    <!-- Таблицы данных -->
+    <Style TargetType="{x:Type DataGrid}">
+        <Setter Property="FontFamily" Value="Open Sans"/>
+        <Setter Property="FontSize" Value="13"/>
+        <Setter Property="AutoGenerateColumns" Value="True"/>
+        <Setter Property="CanUserAddRows" Value="False"/>
+        <Setter Property="IsReadOnly" Value="True"/>
+        <Setter Property="Margin" Value="5"/>
+    </Style>
+
+</ResourceDictionary>
