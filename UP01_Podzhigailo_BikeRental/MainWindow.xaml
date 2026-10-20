@@ -8,7 +8,8 @@
         MinWidth="750"
         WindowStartupLocation="CenterScreen"
         Loaded="Window_Loaded"
-        Closing="Window_Closing">
+        Closing="Window_Closing"
+        Background="{DynamicResource BackgroundColor}">
 
     <Grid Background="{DynamicResource BackgroundColor}">
 
@@ -23,32 +24,48 @@
               Background="{DynamicResource PrimaryColor}">
 
             <Button x:Name="BackButton"
-                    Content="← Назад"
                     Width="100"
                     Height="30"
                     Margin="10,0,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Center"
-                    Click="BackButton_Click"/>
+                    Background="{DynamicResource PrimaryColor}"
+                    Click="BackButton_Click">
+
+                <TextBlock Text="← Назад"
+                           Foreground="#FFFFFF"
+                           FontSize="14"
+                           FontWeight="SemiBold"/>
+            </Button>
 
             <TextBlock Text="BIKE RENTAL"
-                       Foreground="White"
+                       Foreground="#FFFFFF"
                        FontSize="18"
                        FontWeight="Bold"
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center"/>
 
             <ComboBox x:Name="ThemeSelector"
-                      Width="145"
-                      Height="30"
+                      Width="180"
+                      Height="32"
                       Margin="0,0,15,0"
                       HorizontalAlignment="Right"
                       VerticalAlignment="Center"
                       SelectedIndex="0"
+                      Background="{DynamicResource InputBackgroundColor}"
+                      Foreground="{DynamicResource TextColor}"
+                      BorderBrush="{DynamicResource BorderColor}"
                       SelectionChanged="ThemeSelector_SelectionChanged">
 
-                <ComboBoxItem Content="Светлая тема"/>
-                <ComboBoxItem Content="Тёмная тема"/>
+                <ComboBoxItem Content="Светлая тема"
+                              Foreground="{DynamicResource TextColor}"
+                              Background="{DynamicResource InputBackgroundColor}"
+                              Padding="8,5"/>
+
+                <ComboBoxItem Content="Тёмная тема"
+                              Foreground="{DynamicResource TextColor}"
+                              Background="{DynamicResource InputBackgroundColor}"
+                              Padding="8,5"/>
 
             </ComboBox>
 
@@ -67,11 +84,13 @@
               Background="{DynamicResource BackgroundColor}">
 
             <TextBlock Text="Сервис аренды велосипедов и самокатов"
+                       Foreground="{DynamicResource TextColor}"
                        VerticalAlignment="Center"
                        HorizontalAlignment="Left"
                        Margin="10,0,0,0"/>
 
             <TextBlock x:Name="DateTimeNow"
+                       Foreground="{DynamicResource TextColor}"
                        VerticalAlignment="Center"
                        HorizontalAlignment="Right"
                        Margin="0,0,10,0"/>

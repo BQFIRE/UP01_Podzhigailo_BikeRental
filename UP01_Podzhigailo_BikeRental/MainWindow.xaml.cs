@@ -11,6 +11,7 @@ namespace UP01_Podzhigailo_BikeRental
     public partial class MainWindow : Window
     {
         private DispatcherTimer timer;
+        private bool isChangingTheme;
 
         public MainWindow()
         {
@@ -31,22 +32,76 @@ namespace UP01_Podzhigailo_BikeRental
 
             timer.Start();
 
+            // При первом запуске устанавливаем светлую тему
+            ApplyTheme(0);
+
             MainFrame.Navigate(new Pages.AuthPage());
-
-            bool connected = Core.TestConnection(out string message);
-
-            MessageBox.Show(
-                message,
-                connected ? "Подключение к БД" : "Ошибка подключения",
-                MessageBoxButton.OK,
-                connected ? MessageBoxImage.Information : MessageBoxImage.Error);
 
             DateTimeNow.Text = DateTime.Now.ToString(
                 "dd.MM.yyyy HH:mm:ss");
         }
 
+        // Применение выбранной темы
+        private void ApplyTheme(int selectedIndex)
+        {
+            string dictionaryName = selectedIndex == 0
+                ? "Dictionary.xaml"
+                : "darkDictionary.xaml";
+
+            try
+            {
+                Uri uri = new Uri(
+                    dictionaryName,
+                    UriKind.Relative);
+
+                ResourceDictionary resourceDict =
+                    Application.LoadComponent(uri) as ResourceDictionary;
+
+                if (resourceDict == null)
+                {
+                    MessageBox.Show(
+                        "Не удалось загрузить словарь темы.",
+                        "Ошибка",
+                        MessageBoxButton.OK,
+                        MessageBoxImage.Error);
+
+                    return;
+                }
+
+                Application.Current.Resources.MergedDictionaries.Clear();
+
+                Application.Current.Resources.MergedDictionaries.Add(
+                    resourceDict);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "Ошибка загрузки темы:\n" + ex.Message,
+                    "Ошибка",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Error);
+            }
+        }
+
+        // Обработчик переключения темы
+        private void ThemeSelector_SelectionChanged(
+            object sender,
+            SelectionChangedEventArgs e)
+        {
+            if (ThemeSelector == null ||
+                ThemeSelector.SelectedIndex < 0 ||
+                isChangingTheme)
+            {
+                return;
+            }
+
+            ApplyTheme(ThemeSelector.SelectedIndex);
+        }
+
         // Кнопка возврата
-        private void BackButton_Click(object sender, RoutedEventArgs e)
+        private void BackButton_Click(
+            object sender,
+            RoutedEventArgs e)
         {
             if (MainFrame.CanGoBack)
             {
@@ -60,43 +115,6 @@ namespace UP01_Podzhigailo_BikeRental
                     MessageBoxButton.OK,
                     MessageBoxImage.Information);
             }
-        }
-
-        // Переключение темы оформления
-        private void ThemeSelector_SelectionChanged(
-            object sender,
-            SelectionChangedEventArgs e)
-        {
-            if (ThemeSelector.SelectedIndex < 0)
-                return;
-
-            string dictionaryName =
-                ThemeSelector.SelectedIndex == 0
-                    ? "Dictionary.xaml"
-                    : "darkDictionary.xaml";
-
-            var uri = new Uri(
-                dictionaryName,
-                UriKind.Relative);
-
-            var resourceDict =
-                Application.LoadComponent(uri) as ResourceDictionary;
-
-            if (resourceDict == null)
-            {
-                MessageBox.Show(
-                    "Не удалось загрузить выбранную тему.",
-                    "Ошибка",
-                    MessageBoxButton.OK,
-                    MessageBoxImage.Error);
-
-                return;
-            }
-
-            Application.Current.Resources.MergedDictionaries.Clear();
-
-            Application.Current.Resources.MergedDictionaries.Add(
-                resourceDict);
         }
 
         // Подтверждение выхода
@@ -113,6 +131,11 @@ namespace UP01_Podzhigailo_BikeRental
             if (result == MessageBoxResult.No)
             {
                 e.Cancel = true;
+            }
+
+            if (!e.Cancel && timer != null)
+            {
+                timer.Stop();
             }
         }
     }

@@ -1,0 +1,95 @@
+﻿<Page x:Class="UP01_Podzhigailo_BikeRental.Pages.RegisterPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="Регистрация"
+      Background="{DynamicResource BackgroundColor}">
+
+    <Grid Background="{DynamicResource BackgroundColor}">
+
+        <ScrollViewer VerticalScrollBarVisibility="Auto"
+                      HorizontalScrollBarVisibility="Disabled">
+
+            <Border Width="520"
+                    MaxWidth="600"
+                    Margin="15"
+                    Padding="30"
+                    CornerRadius="12"
+                    Background="{DynamicResource CardColor}"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+
+                <StackPanel>
+
+                    <TextBlock Text="Создание аккаунта"
+                               FontSize="27"
+                               FontWeight="Bold"
+                               Foreground="{DynamicResource TextColor}"
+                               HorizontalAlignment="Center"
+                               Margin="0,0,0,25"/>
+
+                    <TextBlock Text="ФИО"
+                               Foreground="{DynamicResource TextColor}"
+                               Margin="0,0,0,4"/>
+
+                    <TextBox x:Name="FullNameTextBox"
+                             MinHeight="42"
+                             Margin="0,0,0,15"
+                             Padding="10,8"
+                             ToolTip="Введите фамилию, имя и отчество"/>
+
+                    <TextBlock Text="Логин"
+                               Foreground="{DynamicResource TextColor}"
+                               Margin="0,0,0,4"/>
+
+                    <TextBox x:Name="LoginTextBox"
+                             MinHeight="42"
+                             Margin="0,0,0,15"
+                             Padding="10,8"
+                             ToolTip="Придумайте логин"/>
+
+                    <TextBlock Text="Пароль"
+                               Foreground="{DynamicResource TextColor}"
+                               Margin="0,0,0,4"/>
+
+                    <PasswordBox x:Name="PasswordInput"
+                                 MinHeight="42"
+                                 Margin="0,0,0,15"
+                                 Padding="10,8"
+                                 ToolTip="Минимум 8 символов"/>
+
+                    <TextBlock Text="Повторите пароль"
+                               Foreground="{DynamicResource TextColor}"
+                               Margin="0,0,0,4"/>
+
+                    <PasswordBox x:Name="ConfirmPasswordInput"
+                                 MinHeight="42"
+                                 Margin="0,0,0,25"
+                                 Padding="10,8"
+                                 ToolTip="Повторите введённый пароль"/>
+
+                    <Button Height="44"
+                            Margin="0,0,0,12"
+                            Background="{DynamicResource AccentColor}"
+                            Click="RegisterButton_Click">
+                        <TextBlock Text="Зарегистрироваться"
+                                   Foreground="#FFFFFF"
+                                   FontSize="15"
+                                   FontWeight="SemiBold"/>
+                    </Button>
+
+                    <Button Height="42"
+                            Margin="0"
+                            Background="{DynamicResource PrimaryColor}"
+                            Click="BackButton_Click">
+                        <TextBlock Text="Назад ко входу"
+                                   Foreground="#FFFFFF"
+                                   FontSize="15"
+                                   FontWeight="SemiBold"/>
+                    </Button>
+
+                </StackPanel>
+            </Border>
+        </ScrollViewer>
+
+    </Grid>
+</Page>
