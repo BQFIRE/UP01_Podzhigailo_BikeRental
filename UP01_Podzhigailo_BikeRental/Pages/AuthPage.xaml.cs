@@ -209,10 +209,11 @@ namespace UP01_Podzhigailo_BikeRental.Pages
                     // Переход на страницу в зависимости от роли
                     if (user.Role == "User")
                     {
-                        if (user.Role == "User")
-                            NavigationService?.Navigate(new UserPage(user.UserID));
-                        else if (user.Role == "Admin")
-                            NavigationService?.Navigate(new AdminPage());
+                        NavigationService?.Navigate(new UserPage(user.UserID));
+                    }
+                    else if (user.Role == "Admin")
+                    {
+                        NavigationService?.Navigate(new AdminPage());
                     }
 
                 }
