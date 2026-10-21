@@ -2,23 +2,22 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
-    <!-- ЦВЕТА СВЕТЛОЙ ТЕМЫ -->
-    <SolidColorBrush x:Key="PrimaryColor" Color="#263238"/>
-    <SolidColorBrush x:Key="AccentColor" Color="#00897B"/>
-    <SolidColorBrush x:Key="BackgroundColor" Color="#F3F6F8"/>
+    <!-- ФИРМЕННЫЕ ЦВЕТА -->
+    <SolidColorBrush x:Key="PrimaryColor" Color="#223E76"/>
+    <SolidColorBrush x:Key="AccentColor" Color="#0198AF"/>
+    <SolidColorBrush x:Key="BackgroundColor" Color="#F3F3F3"/>
     <SolidColorBrush x:Key="CardColor" Color="#FFFFFF"/>
-    <SolidColorBrush x:Key="TextColor" Color="#263238"/>
+    <SolidColorBrush x:Key="TextColor" Color="#193D57"/>
     <SolidColorBrush x:Key="ButtonTextColor" Color="#FFFFFF"/>
     <SolidColorBrush x:Key="InputBackgroundColor" Color="#FFFFFF"/>
-    <SolidColorBrush x:Key="BorderColor" Color="#B0BEC5"/>
-    <SolidColorBrush x:Key="SecondaryTextColor" Color="#607D8B"/>
+    <SolidColorBrush x:Key="BorderColor" Color="#969DAA"/>
+    <SolidColorBrush x:Key="SecondaryTextColor" Color="#256569"/>
 
     <!-- ОСНОВНОЙ ТЕКСТ -->
     <Style TargetType="{x:Type TextBlock}">
         <Setter Property="FontFamily" Value="Open Sans"/>
         <Setter Property="FontSize" Value="14"/>
-        <Setter Property="Foreground"
-                Value="{DynamicResource TextColor}"/>
+        <Setter Property="Foreground" Value="{DynamicResource TextColor}"/>
     </Style>
 
     <!-- КНОПКИ -->
@@ -30,10 +29,8 @@
         <Setter Property="FontFamily" Value="Open Sans"/>
         <Setter Property="FontSize" Value="14"/>
         <Setter Property="FontWeight" Value="SemiBold"/>
-        <Setter Property="Background"
-                Value="{DynamicResource PrimaryColor}"/>
-        <Setter Property="Foreground"
-                Value="{DynamicResource ButtonTextColor}"/>
+        <Setter Property="Background" Value="{DynamicResource PrimaryColor}"/>
+        <Setter Property="Foreground" Value="{DynamicResource ButtonTextColor}"/>
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="Cursor" Value="Hand"/>
 
@@ -50,19 +47,15 @@
                             RecognizesAccessKey="True"
                             TextElement.Foreground="{TemplateBinding Foreground}"/>
                     </Border>
-
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="ButtonBorder"
-                                    Property="Opacity" Value="0.85"/>
+                            <Setter TargetName="ButtonBorder" Property="Opacity" Value="0.85"/>
                         </Trigger>
                         <Trigger Property="IsPressed" Value="True">
-                            <Setter TargetName="ButtonBorder"
-                                    Property="Opacity" Value="0.7"/>
+                            <Setter TargetName="ButtonBorder" Property="Opacity" Value="0.7"/>
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="False">
-                            <Setter TargetName="ButtonBorder"
-                                    Property="Opacity" Value="0.45"/>
+                            <Setter TargetName="ButtonBorder" Property="Opacity" Value="0.45"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -74,8 +67,7 @@
     <Style TargetType="{x:Type Label}">
         <Setter Property="FontFamily" Value="Open Sans"/>
         <Setter Property="FontSize" Value="14"/>
-        <Setter Property="Foreground"
-                Value="{DynamicResource TextColor}"/>
+        <Setter Property="Foreground" Value="{DynamicResource TextColor}"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
     </Style>
 
@@ -86,14 +78,10 @@
         <Setter Property="Padding" Value="8,5"/>
         <Setter Property="Margin" Value="5"/>
         <Setter Property="MinHeight" Value="36"/>
-        <Setter Property="Background"
-                Value="{DynamicResource InputBackgroundColor}"/>
-        <Setter Property="Foreground"
-                Value="{DynamicResource TextColor}"/>
-        <Setter Property="BorderBrush"
-                Value="{DynamicResource BorderColor}"/>
-        <Setter Property="CaretBrush"
-                Value="{DynamicResource TextColor}"/>
+        <Setter Property="Background" Value="{DynamicResource InputBackgroundColor}"/>
+        <Setter Property="Foreground" Value="{DynamicResource TextColor}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderColor}"/>
+        <Setter Property="CaretBrush" Value="{DynamicResource TextColor}"/>
     </Style>
 
     <!-- ПОЛЯ ПАРОЛЯ -->
@@ -103,14 +91,10 @@
         <Setter Property="Padding" Value="8,5"/>
         <Setter Property="Margin" Value="5"/>
         <Setter Property="MinHeight" Value="36"/>
-        <Setter Property="Background"
-                Value="{DynamicResource InputBackgroundColor}"/>
-        <Setter Property="Foreground"
-                Value="{DynamicResource TextColor}"/>
-        <Setter Property="BorderBrush"
-                Value="{DynamicResource BorderColor}"/>
-        <Setter Property="CaretBrush"
-                Value="{DynamicResource TextColor}"/>
+        <Setter Property="Background" Value="{DynamicResource InputBackgroundColor}"/>
+        <Setter Property="Foreground" Value="{DynamicResource TextColor}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderColor}"/>
+        <Setter Property="CaretBrush" Value="{DynamicResource TextColor}"/>
     </Style>
 
     <!-- ВЫПАДАЮЩИЕ СПИСКИ -->
@@ -119,30 +103,23 @@
         <Setter Property="FontSize" Value="14"/>
         <Setter Property="Margin" Value="5"/>
         <Setter Property="MinHeight" Value="32"/>
-        <Setter Property="Background"
-                Value="{DynamicResource InputBackgroundColor}"/>
-        <Setter Property="Foreground"
-                Value="{DynamicResource TextColor}"/>
-        <Setter Property="BorderBrush"
-                Value="{DynamicResource BorderColor}"/>
+        <Setter Property="Background" Value="{DynamicResource InputBackgroundColor}"/>
+        <Setter Property="Foreground" Value="{DynamicResource TextColor}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderColor}"/>
     </Style>
 
     <Style TargetType="{x:Type ComboBoxItem}">
-        <Setter Property="Foreground"
-                Value="{DynamicResource TextColor}"/>
-        <Setter Property="Background"
-                Value="{DynamicResource InputBackgroundColor}"/>
+        <Setter Property="FontFamily" Value="Open Sans"/>
+        <Setter Property="Foreground" Value="{DynamicResource TextColor}"/>
+        <Setter Property="Background" Value="{DynamicResource InputBackgroundColor}"/>
         <Setter Property="Padding" Value="8,6"/>
-
         <Style.Triggers>
             <Trigger Property="IsHighlighted" Value="True">
-                <Setter Property="Background"
-                        Value="{DynamicResource AccentColor}"/>
+                <Setter Property="Background" Value="{DynamicResource AccentColor}"/>
                 <Setter Property="Foreground" Value="#FFFFFF"/>
             </Trigger>
             <Trigger Property="IsSelected" Value="True">
-                <Setter Property="Background"
-                        Value="{DynamicResource AccentColor}"/>
+                <Setter Property="Background" Value="{DynamicResource AccentColor}"/>
                 <Setter Property="Foreground" Value="#FFFFFF"/>
             </Trigger>
         </Style.Triggers>
@@ -155,14 +132,10 @@
         <Setter Property="CanUserAddRows" Value="False"/>
         <Setter Property="IsReadOnly" Value="True"/>
         <Setter Property="Margin" Value="5"/>
-        <Setter Property="Background"
-                Value="{DynamicResource CardColor}"/>
-        <Setter Property="Foreground"
-                Value="{DynamicResource TextColor}"/>
-        <Setter Property="RowBackground"
-                Value="{DynamicResource CardColor}"/>
-        <Setter Property="AlternatingRowBackground"
-                Value="{DynamicResource BackgroundColor}"/>
+        <Setter Property="Background" Value="{DynamicResource CardColor}"/>
+        <Setter Property="Foreground" Value="{DynamicResource TextColor}"/>
+        <Setter Property="RowBackground" Value="{DynamicResource CardColor}"/>
+        <Setter Property="AlternatingRowBackground" Value="{DynamicResource BackgroundColor}"/>
     </Style>
 
 </ResourceDictionary>

@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
@@ -11,14 +10,12 @@ namespace UP01_Podzhigailo_BikeRental
     public partial class MainWindow : Window
     {
         private DispatcherTimer timer;
-        private bool isChangingTheme;
 
         public MainWindow()
         {
             InitializeComponent();
         }
 
-        // Отображение текущей даты и времени
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             timer = new DispatcherTimer();
@@ -32,7 +29,6 @@ namespace UP01_Podzhigailo_BikeRental
 
             timer.Start();
 
-            // При первом запуске устанавливаем светлую тему
             ApplyTheme(0);
 
             MainFrame.Navigate(new Pages.AuthPage());
@@ -41,7 +37,6 @@ namespace UP01_Podzhigailo_BikeRental
                 "dd.MM.yyyy HH:mm:ss");
         }
 
-        // Применение выбранной темы
         private void ApplyTheme(int selectedIndex)
         {
             string dictionaryName = selectedIndex == 0
@@ -83,14 +78,12 @@ namespace UP01_Podzhigailo_BikeRental
             }
         }
 
-        // Обработчик переключения темы
         private void ThemeSelector_SelectionChanged(
             object sender,
             SelectionChangedEventArgs e)
         {
             if (ThemeSelector == null ||
-                ThemeSelector.SelectedIndex < 0 ||
-                isChangingTheme)
+                ThemeSelector.SelectedIndex < 0)
             {
                 return;
             }
@@ -98,7 +91,6 @@ namespace UP01_Podzhigailo_BikeRental
             ApplyTheme(ThemeSelector.SelectedIndex);
         }
 
-        // Кнопка возврата
         private void BackButton_Click(
             object sender,
             RoutedEventArgs e)
@@ -117,7 +109,6 @@ namespace UP01_Podzhigailo_BikeRental
             }
         }
 
-        // Подтверждение выхода
         private void Window_Closing(
             object sender,
             CancelEventArgs e)
